@@ -1,0 +1,28 @@
+﻿/*
+ * 项目名称：申通快递官网-会员中心
+ * 创建人：mengzhufeng
+ * 创建时间：2017-06-01
+ * 项目说明：用于申通快递官网会员中心第三方账号登录
+
+ * 修改时间：
+ * 修改内容：
+ * 修改人：
+ * */
+$(document).ready(function () {
+    //点击微信图标
+    layui.use('layer', function () {
+        var layer = layui.layer;
+        $("#weChatLoginBtn").click(function () {
+           // alert(1)
+            //window.location.href = "/ThirdLogin/WeChatLogin";
+            layer.open({
+                title: '微信登录--第三方合作账号登录',
+                type: 2,
+                area: ['770px', '480px'],
+                skin: 'layui-layer-rim', //加上边框
+                content: ['/ThirdLogin/WeChatLogin', 'no']
+            });
+        });
+    })
+});
+

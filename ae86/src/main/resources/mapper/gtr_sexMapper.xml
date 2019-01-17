@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//-//mybatis.org//DT//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gta.ae86.dao.sex.gtr_sexMapper">
+
+    <select id="getUserSex" resultType="com.gta.ae86.pojo.gtr_sex">
+      select s.`sexid`,s.`gender` from `gtr_sex` s
+      where s.`gender`=#{gender}
+    </select>
+
+</mapper>

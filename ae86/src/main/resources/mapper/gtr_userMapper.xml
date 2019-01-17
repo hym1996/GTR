@@ -2,8 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//-//mybatis.org//DT//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="com.gta.ae86.dao.gtr_userMapper">
+<mapper namespace="com.gta.ae86.dao.user.gtr_userMapper">
 
+    <!-- User的 Map对应集合 -->
     <resultMap id="User" type="com.gta.ae86.pojo.gtr_user">
         <id property="userId" column="userId"/>
         <result property="account" column="account"/>
@@ -16,6 +17,7 @@
         <result property="address" column="address"/>
         <result property="birthday" column="birthday"/>
         <result property="integrity" column="integrity"/>
+        <result property="newDate" column="newDate"/>
 
         <association property="sex" javaType="com.gta.ae86.pojo.gtr_sex">
             <id property="sexid" column="sexid"/>
@@ -28,12 +30,46 @@
         </association>
     </resultMap>
 
+    <!-- 获取一个用户信息 -->
     <select id="getUserList" resultMap="User">
 SELECT u.`userId`,u.`account`,u.`nickName`,u.`headPortrait`,s.`gender`,u.`email`,
 u.`phone`,u.`identityId`,u.`address`,u.`birthday`,u.`integrity`,t.`type`
 FROM `gtr_user` u,`gtr_sex` s,`gtr_usertype` t
 WHERE u.`sex`=s.`sexid` AND u.`type`=t.`typeid`
    </select>
+
+
+    <select id="getUserById" resultMap="User">
+
+SELECT u.`userId`,u.`account`,u.`nickName`,u.`headPortrait`,s.`gender`,u.`email`,
+u.`phone`,u.`identityId`,u.`address`,u.`birthday`,u.`integrity`,t.`type`
+FROM `gtr_user` u,`gtr_sex` s,`gtr_usertype` t
+WHERE u.`sex`=s.`sexid` AND u.`type`=t.`typeid` AND u.userId=#{userId}
+
+    </select>
+
+    <!-- 登录所需方法 -->
+    <select id="login" resultMap="User">
+        select u.* from `gtr_user` u
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="account!=null">
+                and u.account=#{account}
+            </if>
+        </trim>
+    </select>
+
+
+    <!-- 注册添加用户 -->
+    <insert id="addUser" parameterType="com.gta.ae86.pojo.gtr_user">
+  INSERT INTO  `gtr`.`gtr_user` (
+  `account`,`password`,`nickName`,`sex`,`email`,`phone`,`identityId`)
+  VALUES
+  (#{account},#{password},#{nickName},#{sex.sexid},#{email},#{phone},#{identityId}) ;
+    </insert>
+
+    <update id="updatePassword" parameterType="boolean">
+      update `gtr_user` s set s.password=#{password} where s.`phone`=#{phone}
+    </update>
 
 </mapper>
 

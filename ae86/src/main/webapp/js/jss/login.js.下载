@@ -1,0 +1,25 @@
+$(function(){
+    $(".title a").click(function () {
+        if ($(this).index() == 0) {
+            $(".telLogin").hide();
+            $(".accountLogin").show();
+            $(".title a").removeClass("titleOn");
+            $(this).addClass("titleOn");
+        }
+        if ($(this).index() == 2) {
+            $(".telLogin").show();
+            $(".accountLogin").hide();
+            $(".title a").removeClass("titleOn");
+            $(this).addClass("titleOn");
+        }
+    });
+    ////跳转到会员中心首页
+    //$(".loginBtn").click(function () {
+    //    window.location.href = "/Member/Index";
+    //});
+    //$(".registerBtn").click(function () {
+    //    alert(1);
+    //    window.location.href = "/Member/Login";
+    //})
+})
+

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//-//mybatis.org//DT//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gta.ae86.dao.order.gtr_orderMapper">
+
+    <!--<resultMap id="OrderMap" type="com.gta.ae86.pojo.gtr_order">
+        <id property="id" column="id"></id>
+        <result property="userId" column="userId"></result>
+        <result property="serialNumber" column="serialNumber"></result>
+        <result property="isReal" column="isReal"></result>
+        <result property="orderStatus" column="orderStatus"></result>
+        <result property="payStatus" column="payStatus"></result>
+        <result property="remark" column="remark"></result>
+        <result property="startTime" column="startTime"></result>
+        <result property="endTime" column="endTime"></result>
+        <result property="receiveName" column="receiveName"></result>
+        <result property="receivePhone" column="receivePhone"></result>
+        <result property="receiveAddress" column="receiveAddress"></result>
+        <result property="deliveryFee" column="deliveryFee"></result>
+        <association property="user" javaType="com.gta.ae86.pojo.gtr_user">
+            <id property="userId" column="userId"></id>
+            <result property="nickName" column="nickName"></result>
+        </association>
+
+    </resultMap>-->
+    <!--<delete id="deleteById" parameterType="Integer">
+        update from gtr_oder where id = #{id}
+    </delete>-->
+     <insert id="insert" parameterType="com.gta.ae86.pojo.gtr_order">
+         INSERT INTO gtr_order(userId,serialNumber,senderName,senderPhone,senderAddress,payway,receiveName,receivePhone,receiveAddress,remark,isReal)
+VALUES (#{userId},#{serialNumber},#{senderName},#{senderPhone},#{senderAddress},#{payway},#{receiveName},#{receivePhone},#{receiveAddress},#{remark},#{isReal})
+     </insert>
+    <!-- <update id="updateByPrimaryKey" parameterType="gtr_order">
+         update gtr_order
+         <trim prefix="set" suffixOverrides="," suffix="where id=#{id}">
+             <if test="userid !=null">userid=#{userid},</if>
+             <if test="isReal !=null">isReal=#{isReal},</if>
+             <if test="orderStatus !=null">orderStatus=#{orderStatus},</if>
+             <if test="payStatus !=null">payStatus=#{payStatus},</if>
+             <if test="remark !=null">remark=#{remark},</if>
+             <if test="startTime !=null">startTime=#{startTime},</if>
+             <if test="endTime !=null">endTime=#{endTime},</if>
+             <if test="receiveName !=null">receiveName=#{receiveName},</if>
+             <if test="receivePhone !=null">receivePhone=#{receivePhone},</if>
+             <if test="receiveAddress !=null">receiveAddress=#{receiveAddress},</if>
+         </trim>
+     </update>-->
+    <select id="getOrderList" resultType="com.gta.ae86.pojo.gtr_order">
+        SELECT o.`userId`,o.`serialNumber`,o.`isReal`,o.`payStatus`,o.`remark`,o.`startTime`,o.`endTime`,
+   o.`receiveName`,o.`receivePhone`,o.`receiveAddress`,
+ (SELECT u.`nickName` FROM gtr_user u WHERE u.`userId`=o.`userId`)
+  FROM gtr_order o
+  WHERE o.`serialNumber`=#{serialNumber}
+
+    </select>
+</mapper>

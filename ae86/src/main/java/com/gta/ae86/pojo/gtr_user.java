@@ -20,6 +20,29 @@ public class gtr_user {
     private Date birthday;//生日
     private int integrity;//诚信值
     private gtr_usertype type;//用户等级
+    private Date newDate;//用户创建日期
+
+    public gtr_user() {
+    }
+
+    public gtr_user(String account, String password, String nickName, gtr_sex sex, String email, String phone, String identityId) {
+        this.account = account;
+        this.password = password;
+        this.nickName = nickName;
+        this.sex = sex;
+        this.email = email;
+        this.phone = phone;
+        this.identityId = identityId;
+    }
+
+
+    public Date getNewDate() {
+        return newDate;
+    }
+
+    public void setNewDate(Date newDate) {
+        this.newDate = newDate;
+    }
 
     public gtr_sex getSex() {
         return sex;

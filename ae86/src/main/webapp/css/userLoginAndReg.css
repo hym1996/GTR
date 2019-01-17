@@ -1,0 +1,294 @@
+﻿@charset "utf-8";
+/*
+    *
+    *项目名称：申通快递会员中心
+    *创建时间：2017-04-29
+    *项目说明：申通快递会员中心-用户登录注册CSS样式
+    *创建人：刘佳康
+    *
+    *
+    *
+    *
+    *修改时间：2017-06-21
+    *修改内容：去掉了引用字体的样式，修改了短信登录和账号登录切换高度不一致的兼容性样式
+    *修改人：mengzhufeng
+    *
+*/
+
+body {
+	font-size: 12px;
+	-webkit-text-size-adjust: none;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+html,body,.wrap {
+	height: 100%;
+}
+body>.wrap {
+	height: auto;
+	min-height: 100%;
+}
+li {
+	list-style: none;
+}
+a {
+	text-decoration: none !important;
+	cursor: pointer;
+}
+a:hover {
+	text-decoration: none !important;
+}
+input[type=text],
+button {
+	outline: none;
+}
+ul::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+ul {
+	margin: 0;
+}
+.f_left {
+	float: left !important;
+}
+.f_right {
+	float: right !important;
+}
+p {
+	margin: 0;
+}
+
+/*头部*/
+.header {
+	width: 100%;
+	background: #f06638;
+}
+.top {
+	height: 420px;
+	background: url(../images/gta5.jpg) center;
+}
+.top .content {
+	width: 1000px;
+	margin: 0 auto;
+	position: relative;
+}
+.top img {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+/*头部End*/
+/*内容*/
+.mainer {
+	width: 100%;
+}
+.wrap {
+	width: 1000px;
+	margin: 0 auto;
+	position: relative;
+}
+.memberBox {
+	width: 670px;
+	/*height: 450px;*/
+	position: absolute;
+	background: #fff;
+	left: 165px;
+	top: -216px;
+	border-radius: 8px;
+	z-index: 999;
+}
+.memberBox .left {
+	margin-top: 34px;
+	margin-left: 34px;
+	width: 392px;
+	float: left;
+}
+.memberBox .left .title {
+	font-size: 16px;
+}
+.memberBox .left .title span {
+	font-size: 12px;
+	color: #ececec;
+	margin: 0 35px;
+}
+.memberBox .left .title a {
+	color: #555;
+}
+.memberBox .left .title .titleOn {
+	color: #ee6902;
+}
+.memberBox .left .inputBox {
+	margin-top: 38px;
+    padding-bottom:24px;
+}
+.memberBox .left .inputBox .txtBox {
+	width: 350px;
+	padding-right: 42px;
+	/*padding-bottom: 24px;*/
+}
+.telBox {
+	width: 350px;
+	height: 50px;
+	background: #f0f4f5;
+	border: none;
+	outline: none;
+	text-indent: 12px;
+	border-radius: 6px;
+	font-size: 12px;
+}
+.codeBox {
+	width: 165px;
+	height: 50px;
+	text-indent: 12px;
+	border-radius: 6px;
+	border: none;
+	outline: none;
+	background: #f0f4f5;
+	font-size: 12px;
+}
+.login_validateCode
+{
+    float:right;
+    margin-top:-48px;
+    margin-right:-20px;
+    clear:both;
+}
+.login_validateCode_content
+{
+    float:right;
+    margin-top:18px;
+    padding-left:10px;
+    clear:both;
+}
+.sendCode {
+	width: 112px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	background: #ee6900;
+	border: none;
+	outline: none;
+	margin-left: 9px;
+	color: #fff;
+	font-size: 12px;
+	border-radius: 5px;
+}
+.or {
+	position: absolute;
+	/*bottom:20px;*/
+	top:10px;
+	right: 236px;
+	font-size: 14px;
+	color: #e0e0e0;
+	height: 580px;
+	width: 1px;
+}
+.telLogin {
+	padding-bottom: 30px;
+	display: none;
+}
+.accountLogin {
+	padding-bottom: 30px;
+}
+.orTop {
+	height: 145px;
+	border-right: 1px dashed #e5e5e5;
+}
+.orBottom {
+	height: 163px;
+	border-right: 1px dashed #e5e5e5;
+}
+.inputOperate {
+	margin-top: 18px;
+}
+.inputOperate p {
+	width: 100%;
+}
+.OperateBox {
+	padding-right: 42px;
+	width: 350px;
+}
+.remember {
+	text-align: right;
+}
+.remember a {
+	color: #eb6b00;
+}
+.loginBtn {
+	width: 350px;
+	height: 50px;
+	background: #ee6900;
+	text-align: center;
+	color: #fff;
+	font-size: 16px;
+	border-radius: 6px;
+	border: none;
+	outline: none;
+	margin-top: 10px;
+}
+.loginBtn:hover {
+	cursor: pointer;
+}
+.registerBtn {
+	width: 350px;
+	height: 50px;
+	background: #ee6900;
+	text-align: center;
+	color: #fff;
+	font-size: 16px;
+	border-radius: 6px;
+	border: none;
+	outline: none;
+	margin-top: 10px;
+}
+.registerBtn:hover {
+	cursor: pointer;
+}
+.alert {
+	width: 100%;
+	text-align: center;
+	margin-top: 10px;
+}
+.resgisterBtn {
+	color: #ec6900;
+}
+.resgisterBtn img {
+	vertical-align: -6px;
+	margin-left: 10px;
+}
+.memberBox .right {
+	float: left;
+	margin-top: 34px;
+	width: 244px;
+}
+.memberBox .right p {
+	text-align: center;
+}
+.rightAlert {
+	text-align: center;
+	color: #555555;
+	font-size: 14px;
+}
+.share {
+	margin-top: 40px;
+	text-align: center;
+}
+.QRCode img {
+	width: 156px;
+	height: 156px;
+	margin-top: 52px;
+}
+.sendBtn {
+	margin-top: 40px;
+}
+.sendBtn a {
+	color: #ec6900;
+	text-decoration: underline !important;
+}
+.registerBox {
+	padding-bottom: 30px;
+}
